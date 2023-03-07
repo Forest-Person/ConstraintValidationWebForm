@@ -21,15 +21,41 @@ const formValidation = () => {
     <div>
         <label for = 'country'>Country Selection</label>
         <select class = 'selectCountry' name = 'country'>
-
-        
         
         </select>
+    </div>
+
+    <div> 
+
+    <label for 'zipcode'>Zip Code</label>
+    <input type="tel" pattern="[0-9]*" placeholder="Zip Code" max="99999" maxlength = '5' name = 'zipcode'/>
+
+
+        </div>
+
+    <div> 
+
+    <label for 'password'>Password:</label>
+    <input type = 'password' maxlength = '16' name = 'password'>
+
+
+        </div>
+
+    
+    <div> 
+
+    <label for 'passwordConfirm'>Password Confirmation:</label>
+    <input type = 'passwordConfirm' maxlength = '16' name = 'password'>
+
+
+    
+        </div>
 
         <button type = 'button'>CLick to load country</button>
-        <div class = 'imageDiv'>
-        </div>
+    <div class = 'imageDiv'>
+        
     </div>
+    
 
 </form>
 
@@ -47,7 +73,7 @@ const formValidation = () => {
 
     const browserFormDiv = document.querySelector('.browserForm')
 
-    browserFormDiv.noValidate = true
+    //browserFormDiv.noValidate = true
 
     countryList() //loads the country list into the options of the select country options
 
