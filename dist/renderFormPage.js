@@ -21,8 +21,14 @@ const formValidation = () => {
     <div>
         <label for = 'country'>Country Selection</label>
         <select class = 'selectCountry' name = 'country'>
+
+        
         
         </select>
+
+        <button type = 'button'>CLick to load country</button>
+        <div class = 'imageDiv'>
+        </div>
     </div>
 
 </form>
@@ -35,12 +41,29 @@ const formValidation = () => {
 
     content.insertAdjacentHTML('afterbegin',browserForm)
 
-    const theForm = document.querySelector('.browserForm')
+    const imageDiv = document.querySelector('.imageDiv')
 
-    theForm.noValidate = true
+    const theButton = document.querySelector('button')
+
+    const browserFormDiv = document.querySelector('.browserForm')
+
+    browserFormDiv.noValidate = true
 
     countryList() //loads the country list into the options of the select country options
 
+    theButton.addEventListener('click',(e)=>{ //show country relavent image when user clicks on button based on country value in selector.
+
+        e.preventDefault()
+        imageDiv.replaceChildren()
+        const countryImage = document.createElement('img')
+        const countrySelected = document.querySelector('.selectCountry')
+        countryImage.src = ''
+        
+        countryImage.src = `https://source.unsplash.com/random/?${countrySelected.value}?sig=${Math.floor(Math.random()*100)}`
+        imageDiv.appendChild(countryImage)
+        browserFormDiv.reset()
+        
+    })
 
 }
         
