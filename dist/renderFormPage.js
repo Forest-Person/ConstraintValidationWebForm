@@ -7,25 +7,27 @@ const formValidation = () => {
 
     //get content div
     const content = document.querySelector('#content')
-
+const insertContent = () => {
 
  const  browserForm =  `
     
 <form  class = 'browserForm'> 
+    <fieldset>
+    <legend>Travel Contact Registry</legend>
 
-    <div>
+    <div class = 'formElement'>
         <label for = 'email'>Email</label>
         <input type = 'email' name = 'email'>
     </div>
 
-    <div>
+    <div class = 'formElement'>
         <label for = 'country'>Country Selection</label>
         <select class = 'selectCountry' name = 'country'>
         
         </select>
     </div>
 
-    <div> 
+    <div class = 'formElement'> 
 
     <label for 'zipcode'>Zip Code</label>
     <input type="tel" pattern="[0-9]*" placeholder="Zip Code" max="99999" maxlength = '5' name = 'zipcode'/>
@@ -33,7 +35,7 @@ const formValidation = () => {
 
         </div>
 
-    <div> 
+    <div class = 'formElement'> 
 
     <label for 'password'>Password:</label>
     <input type = 'password' maxlength = '16' name = 'password'>
@@ -42,10 +44,10 @@ const formValidation = () => {
         </div>
 
     
-    <div> 
+    <div class = 'formElement'> 
 
     <label for 'passwordConfirm'>Password Confirmation:</label>
-    <input type = 'passwordConfirm' maxlength = '16' name = 'password'>
+    <input type = 'password' maxlength = '16' name = 'password'>
 
 
     
@@ -55,6 +57,8 @@ const formValidation = () => {
     <div class = 'imageDiv'>
         
     </div>
+
+    </fieldset>
     
 
 </form>
@@ -67,7 +71,14 @@ const formValidation = () => {
 
     content.insertAdjacentHTML('afterbegin',browserForm)
 
-    const imageDiv = document.querySelector('.imageDiv')
+
+}
+
+insertContent()  //call function defined above to insert homepagerender into content div.
+
+    const insertCountryDiv = ()=>{
+
+const imageDiv = document.querySelector('.imageDiv')
 
     const theButton = document.querySelector('button')
 
@@ -87,9 +98,13 @@ const formValidation = () => {
         
         countryImage.src = `https://source.unsplash.com/random/?${countrySelected.value}?sig=${Math.floor(Math.random()*100)}`
         imageDiv.appendChild(countryImage)
-        browserFormDiv.reset()
+        
         
     })
+
+}
+
+insertCountryDiv()
 
 }
         

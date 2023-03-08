@@ -1,7 +1,10 @@
-#content  p {
+#content {
 
-    color:green;
-    border:2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
 }
 
 .imageDiv img{
@@ -9,4 +12,40 @@
     max-height: 40rem;
     object-fit: cover;
     
+}
+
+.formElement {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 25rem;
+
+
+}
+
+.browserForm {
+
+    padding:2rem;
+    border: 4px solid rgb(39, 104, 195);
+    border-radius:10px;
+}
+
+.browserForm div {
+
+    padding-bottom:1rem;
+}
+
+fieldset{
+
+    padding:4rem;
+    font-size: 2rem;
+}
+input{
+
+    font-size: 1.5rem;
+}
+
+button{
+
+    font-size: 1.5rem;
 }
