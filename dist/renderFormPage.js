@@ -87,11 +87,12 @@ const formValidation = () => {
 
         if (formInputs.checkValidity() === false){
             console.log('Form is invalid')
-            e.preventDefault()}else{console.log('yo')}
+            e.preventDefault()}
             
     
         if(selectCountry.value==='--Select a Country--'){
-            console.log('Need a country value.')
+            selectCountry.classList.add('invalid')
+            
             e.preventDefault()
         }
     
