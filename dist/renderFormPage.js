@@ -72,6 +72,11 @@ const formValidation = () => {
     content.insertAdjacentHTML('afterbegin',browserForm)
 
 
+    const form = document.querySelector('.browserForm')
+
+    form.noValidate = true
+
+
 
 
 countryList()
