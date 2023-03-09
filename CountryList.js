@@ -1009,8 +1009,8 @@ const countryList = ()=>{
 
   
     
+//--------------Add country values to options of the select country dropdown menu-----------
 
-let populateCountryList = (function loadCountries() {
     const selectDrop = document.querySelector('.selectCountry');
     
     let output = "";
@@ -1024,8 +1024,33 @@ let populateCountryList = (function loadCountries() {
     })
      
     selectDrop.insertAdjacentHTML('afterbegin',output)
-}
-)()
+
+
+
+    //---------After the submit button is clicked we add an image corresponding to the country selected from unsplash----------
+
+  const imageDiv = document.querySelector('.imageDiv')
+  
+      const theButton = document.querySelector('button')
+  
+       
+      
+  
+      theButton.addEventListener('click',(e)=>{ 
+  
+          e.preventDefault()
+          imageDiv.replaceChildren()
+          const countryImage = document.createElement('img')
+          const countrySelected = document.querySelector('.selectCountry')
+          countryImage.src = ''
+          
+          countryImage.src = `https://source.unsplash.com/random/?${countrySelected.value}?sig=${Math.floor(Math.random()*100)}`
+          imageDiv.appendChild(countryImage)
+          
+          
+      })
+
     
-}
+  
+  }
   export { countryList }

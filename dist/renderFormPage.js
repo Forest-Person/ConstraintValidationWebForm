@@ -7,7 +7,7 @@ const formValidation = () => {
 
     //get content div
     const content = document.querySelector('#content')
-const insertContent = () => {
+
 
  const  browserForm =  `
     
@@ -72,40 +72,9 @@ const insertContent = () => {
     content.insertAdjacentHTML('afterbegin',browserForm)
 
 
-}
 
-insertContent()  //call function defined above to insert homepagerender into content div.
 
-    const insertCountryDiv = ()=>{
-
-const imageDiv = document.querySelector('.imageDiv')
-
-    const theButton = document.querySelector('button')
-
-    const browserFormDiv = document.querySelector('.browserForm')
-
-    //browserFormDiv.noValidate = true
-
-    countryList() //loads the country list into the options of the select country options
-
-    theButton.addEventListener('click',(e)=>{ //show country relavent image when user clicks on button based on country value in selector.
-
-        e.preventDefault()
-        imageDiv.replaceChildren()
-        const countryImage = document.createElement('img')
-        const countrySelected = document.querySelector('.selectCountry')
-        countryImage.src = ''
-        
-        countryImage.src = `https://source.unsplash.com/random/?${countrySelected.value}?sig=${Math.floor(Math.random()*100)}`
-        imageDiv.appendChild(countryImage)
-        
-        
-    })
-
-}
-
-insertCountryDiv()
-
+countryList()
 }
         
 
