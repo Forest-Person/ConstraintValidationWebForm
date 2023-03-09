@@ -6,7 +6,7 @@ import { formValidation } from '../dist/renderFormPage';
 
 
 
-const content = document.querySelector('#content')
+
 
 
 

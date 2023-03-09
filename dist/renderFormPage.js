@@ -17,12 +17,13 @@ const formValidation = () => {
 
     <div class = 'formElement'>
         <label for = 'email'>Email</label>
-        <input type = 'email' name = 'email'>
+        <input type = 'email' name = 'email' required>
     </div>
 
     <div class = 'formElement'>
         <label for = 'country'>Country Selection</label>
-        <select class = 'selectCountry' name = 'country'>
+        <select class = 'selectCountry' name = 'country' required>
+        <option>--Select a Country--</option>
         
         </select>
     </div>
@@ -30,7 +31,7 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'zipcode'>Zip Code</label>
-    <input type="tel" pattern="[0-9]*" placeholder="Zip Code" max="99999" maxlength = '5' name = 'zipcode'/>
+    <input type="number" pattern="\d*"  placeholder="Zip Code" max="99999" maxlength = '5' name = 'zipcode'/>
 
 
         </div>
@@ -38,7 +39,7 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'password'>Password:</label>
-    <input type = 'password' maxlength = '16' name = 'password'>
+    <input required type = 'password' maxlength = '16' name = 'password'>
 
 
         </div>
@@ -47,13 +48,13 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'passwordConfirm'>Password Confirmation:</label>
-    <input type = 'password' maxlength = '16' name = 'password'>
+    <input required type = 'password' maxlength = '16' name = 'password'>
 
 
     
         </div>
 
-        <button type = 'button'>Click to load country</button>
+        <button class = 'submitButton' type = 'submit'>Submit Form</button>
     <div class = 'imageDiv'>
         
     </div>
@@ -72,11 +73,30 @@ const formValidation = () => {
     content.insertAdjacentHTML('afterbegin',browserForm)
 
 
-    const form = document.querySelector('.browserForm')
 
-    form.noValidate = false
+    ////--------------Validation API -------------////
+
+    const signupForm = document.querySelector('.browserForm')
+    const selectCountry = document.querySelector('.selectCountry')
 
     
+
+    const formInputs = document.querySelector('form')
+
+    formInputs.addEventListener('submit',(e)=>{
+
+        if (formInputs.checkValidity() === false){
+            console.log('Form is invalid')
+            e.preventDefault()}else{console.log('yo')}
+            
+    
+        if(selectCountry.value==='--Select a Country--'){
+            console.log('Need a country value.')
+            e.preventDefault()
+        }
+    
+    })
+
 
 
 

@@ -1031,14 +1031,14 @@ const countryList = ()=>{
 
   const imageDiv = document.querySelector('.imageDiv')
   
-      const theButton = document.querySelector('button')
+      const theButton = document.querySelector('.submitButton')
   
        
       
   
       theButton.addEventListener('click',(e)=>{ 
   
-          e.preventDefault()
+          
           imageDiv.replaceChildren()
           const countryImage = document.createElement('img')
           const countrySelected = document.querySelector('.selectCountry')
