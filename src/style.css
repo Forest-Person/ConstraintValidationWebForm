@@ -78,4 +78,14 @@ select {
 
 }
 
+@media only screen and (min-width: 800px ){
+#content {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+   
+  }
