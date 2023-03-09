@@ -53,7 +53,7 @@ const formValidation = () => {
     
         </div>
 
-        <button type = 'button'>CLick to load country</button>
+        <button type = 'button'>Click to load country</button>
     <div class = 'imageDiv'>
         
     </div>
@@ -74,7 +74,9 @@ const formValidation = () => {
 
     const form = document.querySelector('.browserForm')
 
-    form.noValidate = true
+    form.noValidate = false
+
+    
 
 
 
