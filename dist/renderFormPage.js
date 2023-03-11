@@ -128,7 +128,7 @@ const formValidation = () => {
         
     
     }
-    if(pass1.value === pass2.value) {
+    if(pass1.value === pass2.value && pass1.value !== '' && pass2.value !== '') {
         
         const browserForm = document.querySelector('.browserForm')
         pass1.classList.remove('invalid')
@@ -143,8 +143,21 @@ const formValidation = () => {
     
     })
 
-    
+   const  signupFormArray =  Array.from(signupForm)
 
+   signupFormArray.forEach((item)=>{ item.addEventListener('blur',(event)=>{
+
+    if(!event.target.checkValidity()){
+
+        event.target.classList.add('invalid')
+    }else{
+        return
+    }
+
+
+   },true)
+
+})
 
 
 
