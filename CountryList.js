@@ -1037,6 +1037,10 @@ const countryList = ()=>{
       
   
       theButton.addEventListener('click',(e)=>{ 
+
+          const submitForm = document.querySelector('.browserForm')
+
+          
   
           
           imageDiv.replaceChildren()

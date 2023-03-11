@@ -22,8 +22,8 @@ const formValidation = () => {
 
     <div class = 'formElement'>
         <label for = 'country'>Country Selection</label>
-        <select class = 'selectCountry' name = 'country' required>
-        <option>--Select a Country--</option>
+        <select  class = 'selectCountry' name = 'country' >
+        <option  value = '--Select a Country--' >--Select a Country--</option>
         
         </select>
     </div>
@@ -31,7 +31,8 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'zipcode'>Zip Code</label>
-    <input type="number" pattern="\d*"  placeholder="Zip Code" max="99999" maxlength = '5' name = 'zipcode'/>
+    
+    <input name="zipcode" type="text" pattern="[0-9]*">
 
 
         </div>
@@ -78,23 +79,25 @@ const formValidation = () => {
 
     const signupForm = document.querySelector('.browserForm')
     const selectCountry = document.querySelector('.selectCountry')
-
+    const submitButton = document.querySelector('.submitButton')
+    
+    
     
 
-    const formInputs = document.querySelector('form')
+    submitButton.addEventListener('click',(e)=>{
 
-    formInputs.addEventListener('submit',(e)=>{
-
-        if (formInputs.checkValidity() === false){
-            console.log('Form is invalid')
-            e.preventDefault()}
-            
+                  
     
         if(selectCountry.value==='--Select a Country--'){
+            selectCountry.setCustomValidity(''); 
             selectCountry.classList.add('invalid')
-            
+            selectCountry.setCustomValidity('Must choose a country!')
+           
             e.preventDefault()
-        }
+            
+
+        
+        }else if (selectCountry.value!=='--Select a Country--'){selectCountry.setCustomValidity(''); selectCountry.classList.remove('invalid')}
     
     })
 
