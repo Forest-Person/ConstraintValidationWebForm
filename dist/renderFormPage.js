@@ -40,6 +40,7 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'password'>Password:</label>
+    <p style = 'display:none; color:red;' class = "passWarning" for 'password'> *** Passwords do not Match ***</p>
     <input class = 'password' required type = 'password' maxlength = '16' name = 'password'>
 
 
@@ -118,25 +119,25 @@ const formValidation = () => {
     if(pass1.value !== pass2.value){
         
         
-        const passMessageWarning = `<label style = 'color:red; class = "passWarning" for 'password'> *** Passwords do not Match ***</label>`
-        
+
+        document.querySelector('.passWarning').style.display = 'block'
         pass1.classList.add('invalid') 
         pass2.classList.add('invalid')
+        
         e.preventDefault()
-        pass1.insertAdjacentHTML('beforebegin', passMessageWarning)
+        
     
-    }else if(pass1.value === pass2.value) {
+    }
+    if(pass1.value === pass2.value) {
         
-        
+        const browserForm = document.querySelector('.browserForm')
         pass1.classList.remove('invalid')
         pass2.classList.remove('invalid')
-        if(document.querySelector('.passWarning')){
-
-            const passWarning =  document.querySelector('.passwarning')
-            signupForm.remove(passWarning)
-        }
+        document.querySelector('.passWarning').style.display = 'none'
         
-        }
+        
+    
+    }
 
     
     
