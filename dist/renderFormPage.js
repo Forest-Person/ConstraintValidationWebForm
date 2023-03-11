@@ -32,7 +32,7 @@ const formValidation = () => {
 
     <label for 'zipcode'>Zip Code</label>
     
-    <input required name="zipcode" type="text" pattern="[0-9]*">
+    <input required name="zipcode" type="text" pattern="[0-9]*" maxlength = '5'>
 
 
         </div>
@@ -40,7 +40,7 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'password'>Password:</label>
-    <input required type = 'password' maxlength = '16' name = 'password'>
+    <input class = 'password' required type = 'password' maxlength = '16' name = 'password'>
 
 
         </div>
@@ -49,7 +49,7 @@ const formValidation = () => {
     <div class = 'formElement'> 
 
     <label for 'passwordConfirm'>Password Confirmation:</label>
-    <input required type = 'password' maxlength = '16' name = 'password'>
+    <input class = 'passwordConfirm' required type = 'password' maxlength = '16' name = 'password'>
 
 
     
@@ -109,9 +109,42 @@ const formValidation = () => {
         
         }else if (selectCountry.value!==''){selectCountry.setCustomValidity(''); selectCountry.classList.remove('invalid')}
     
+    
+        //-----------Pasword Confirmation----------//
+
+    const pass1 = document.querySelector('.password')
+    const pass2 = document.querySelector('.passwordConfirm')
+
+    if(pass1.value !== pass2.value){
+        
+        
+        const passMessageWarning = `<label style = 'color:red; class = "passWarning" for 'password'> *** Passwords do not Match ***</label>`
+        
+        pass1.classList.add('invalid') 
+        pass2.classList.add('invalid')
+        e.preventDefault()
+        pass1.insertAdjacentHTML('beforebegin', passMessageWarning)
+    
+    }else if(pass1.value === pass2.value) {
+        
+        
+        pass1.classList.remove('invalid')
+        pass2.classList.remove('invalid')
+        if(document.querySelector('.passWarning')){
+
+            const passWarning =  document.querySelector('.passwarning')
+            signupForm.remove(passWarning)
+        }
+        
+        }
+
+    
+    
     })
 
     
+
+
 
 
 
