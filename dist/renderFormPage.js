@@ -22,8 +22,8 @@ const formValidation = () => {
 
     <div class = 'formElement'>
         <label for = 'country'>Country Selection</label>
-        <select  class = 'selectCountry' name = 'country' >
-        <option  value = '--Select a Country--' >--Select a Country--</option>
+        <select required class = 'selectCountry' name = 'country' >
+        <option  value = '' ></option>
         
         </select>
     </div>
@@ -32,7 +32,7 @@ const formValidation = () => {
 
     <label for 'zipcode'>Zip Code</label>
     
-    <input name="zipcode" type="text" pattern="[0-9]*">
+    <input required name="zipcode" type="text" pattern="[0-9]*">
 
 
         </div>
@@ -77,7 +77,7 @@ const formValidation = () => {
 
     ////--------------Validation API -------------////
 
-    const signupForm = document.querySelector('.browserForm')
+    const signupForm = document.querySelectorAll('.browserForm')
     const selectCountry = document.querySelector('.selectCountry')
     const submitButton = document.querySelector('.submitButton')
     
@@ -86,9 +86,19 @@ const formValidation = () => {
 
     submitButton.addEventListener('click',(e)=>{
 
-                  
+        
+        const formElements = Array.from(document.querySelectorAll('input'))
+
+        formElements.map((item=>{
+
+            if(!item.checkValidity()){
+                item.classList.add('invalid')
+            }else{item.classList.remove('invalid')}
+
+        }))
+          
     
-        if(selectCountry.value==='--Select a Country--'){
+        if(selectCountry.value===''){
             selectCountry.setCustomValidity(''); 
             selectCountry.classList.add('invalid')
             selectCountry.setCustomValidity('Must choose a country!')
@@ -97,10 +107,11 @@ const formValidation = () => {
             
 
         
-        }else if (selectCountry.value!=='--Select a Country--'){selectCountry.setCustomValidity(''); selectCountry.classList.remove('invalid')}
+        }else if (selectCountry.value!==''){selectCountry.setCustomValidity(''); selectCountry.classList.remove('invalid')}
     
     })
 
+    
 
 
 
